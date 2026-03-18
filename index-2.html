@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nitin Ghatkar — Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1814;
+    --ink-mid: #4a4540;
+    --ink-light: #8a8278;
+    --paper: #f7f4ef;
+    --paper-warm: #ede9e0;
+    --accent: #8b2e12;
+    --rule: #d4cfc6;
+    --mono: 'DM Mono', monospace;
+    --serif: 'EB Garamond', Georgia, serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--serif);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 1px solid var(--rule);
+    padding: 3.5rem 0 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+  }
+
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 2rem;
+  }
+
+  .name {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  .name em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .tagline {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-top: 0.75rem;
+  }
+
+  .header-meta {
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--ink-light);
+    letter-spacing: 0.06em;
+    line-height: 2;
+  }
+
+  .header-meta a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .header-meta a:hover { border-color: var(--accent); }
+
+  /* ── NAV ── */
+  nav {
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  nav ul {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  nav a {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    text-decoration: none;
+    padding: 1rem 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  nav a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+
+  section {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--ink);
+    margin-bottom: 1.2em;
+  }
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .about-sidebar {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-light);
+    line-height: 1.9;
+  }
+
+  .sidebar-block {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .sidebar-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .sidebar-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── RESEARCH ── */
+  .paper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 2rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .paper:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .paper-number {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--ink-light);
+    letter-spacing: 0.08em;
+    padding-top: 0.25rem;
+    min-width: 2rem;
+  }
+
+  .paper-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+
+  .paper-status {
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.7rem;
+  }
+
+  .paper-abstract {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    line-height: 1.65;
+  }
+
+  .paper-tags {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+  }
+
+  /* ── BACKGROUND ── */
+  .timeline {
+    display: grid;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .timeline-item:last-child { border-bottom: none; }
+
+  .timeline-period {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-light);
+    padding-top: 0.15rem;
+    line-height: 1.5;
+  }
+
+  .timeline-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-org {
+    font-style: italic;
+    color: var(--ink-mid);
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+
+  /* ── CONTACT ── */
+  .contact-row {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-item {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-light);
+  }
+
+  .contact-item .c-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-item a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .contact-item a:hover { border-color: var(--accent); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 2.5rem;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--ink-light);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .header-inner { grid-template-columns: 1fr; }
+    .header-meta { text-align: left; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .timeline-item { grid-template-columns: 1fr; gap: 0.25rem; }
+    .timeline-period { padding-top: 0; }
+    nav ul { gap: 1.5rem; overflow-x: auto; }
+    .contact-row { gap: 1.5rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .name, .tagline, .header-meta {
+    animation: fadeUp 0.6s ease both;
+  }
+  .tagline { animation-delay: 0.1s; }
+  .header-meta { animation-delay: 0.15s; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <h1 class="name">Nitin <em>Ghatkar</em></h1>
+      <p class="tagline">Semiconductor Geostrategy · Compliance Architecture · Political Economy of AI</p>
+    </div>
+    <div class="header-meta">
+      PGPEx '26 · IIM Shillong<br>
+      Class Rank 3 · CGPA 3.49<br>
+      CFA Level I Candidate<br><br>
+      <a href="/cdn-cgi/l/email-protection#dab4b3aeb3b4f4bdb2bbaeb1bba89ab3b3b7a9b2b3b6b6b5b4bdf4bbb9f4b3b4"><span class="__cf_email__" data-cfemail="107e7964797e3e777871647b71625079797d6378797c7c7f7e773e71733e797e">[email&#160;protected]</span></a><br>
+      <a href="https://github.com/ghatkar111" target="_blank">github.com/ghatkar111</a>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">About</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I work at the intersection of semiconductor supply chain politics, US export control architecture, and the emerging governance frameworks shaping AI competition between great powers. My research focuses on how compliance architecture integration — particularly BIS/EAR, CHIPS Act, and iCET frameworks — constitutes a novel form of strategic dependency not fully theorised by existing chokepoint or diffusion models.</p>
+        <p>My current projects examine India's positioning within the US-led semiconductor alliance, the governance risks facing system-layer-absent fabs (using Tata Electronics' Dholera facility as a primary empirical case), and the design of distributed qualitative economic intelligence networks for central banks.</p>
+        <p>Trained as a metallurgical engineer (COEP Pune), I spent seven years in founder's offices at industrial manufacturing firms before pursuing an Executive MBA at IIM Shillong. My engagement with political science and international relations is grounded in sustained self-directed study through UPSC Civil Services preparation, covering Western political thought, comparative politics, and IR theory at an advanced level.</p>
+      </div>
+      <div class="about-sidebar">
+        <div class="sidebar-block">
+          <div class="sidebar-label">Research Interests</div>
+          Semiconductor geostrategy<br>
+          Export control architecture<br>
+          AI governance & standards<br>
+          Political economy of technology<br>
+          Central bank intelligence design
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Faculty Affiliations</div>
+          Prof. Charan Singh<br>
+          <span style="color:var(--ink-light)">Ex-IMF · Ex-RBI · IIM Bangalore</span><br><br>
+          Prof. Sankarshan Basu<br>
+          <span style="color:var(--ink-light)">IIM Bangalore</span><br><br>
+          Prof. Nalini Prava Tripathi<br>
+          <span style="color:var(--ink-light)">IIM Shillong</span><br><br>
+          Prof. P C Mandal<br>
+          <span style="color:var(--ink-light)">IIM Shillong</span><br><br>
+          Prof. Achinta Sarmah<br>
+          <span style="color:var(--ink-light)">IIM Shillong</span>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Languages</div>
+          English · Hindi · Marathi<br>
+          French · Mandarin Chinese
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="section-label">Working Papers</div>
+
+    <div class="paper">
+      <div class="paper-number">01</div>
+      <div>
+        <div class="paper-title">Sovereign Silicon: India's Strategic Positioning in the US-Led Semiconductor Alliance</div>
+        <div class="paper-status">Working Paper · In Progress · 2026</div>
+        <div class="paper-abstract">
+          This paper develops a compliance jurisdiction framework to analyse India's integration into US semiconductor export control architecture — BIS/EAR, CHIPS Act, iCET, and the US-Japan-Netherlands coordination regime. I argue that compliance architecture integration constitutes a novel form of strategic dependency that existing chokepoint theory (Farrell & Newman) and technology diffusion models (Ding) do not fully capture. The paper models India's positioning across three scenarios — Deep Partner, Hedging Middle Power, and Strategically Excluded — using Tata Electronics' Dholera fab as the primary empirical case. Key findings concern the governance risks of system-layer absence in a compliant but externally dependent fab environment, and the non-ergodic nature of strategic exclusion risk once export control thresholds are crossed.
+        </div>
+        <div style="margin-top:1rem; padding:0.85rem 1rem; background:var(--paper-warm); border-left:2px solid var(--accent); font-size:0.88rem; color:var(--ink-mid); line-height:1.6;">
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.4rem;">Industry Collaboration · 12 Practitioners</span>
+          Research developed with active input from practitioners across the semiconductor value chain: Chandrashekhar Savant (Ph.D. Cornell, Ex-TSMC Thin Films), Shlok Sundaresh (Global Strategic Sourcing, Apple · Stanford GSB · ASM HTS), Tushar Pund and Sneha Patil (Applied Materials · IISc), Rohit Damkondwar (NVIDIA), Prasad Soman (Amazon Lab126), Sumit Batheja (UT Arlington, Semiconductor Fabrication), Sarang Kulkarni (Global Operations, NPI · Industry 4.0), Nitish Patil CFA (Strategy · M&A · IMD MBA), Vidyadhar Kangarkar (Process Engineering), Kimaya Vyavhare (Materials Science, Kennametal), Shubham Badjate (Product Marketing, IIT Bombay), and Akash Gandhare (Embedded Software, Volkswagen Infotainment).
+        </div>
+        <div class="paper-tags" style="margin-top:0.75rem;">
+          <span class="tag">Semiconductor Geostrategy</span>
+          <span class="tag">Export Controls</span>
+          <span class="tag">BIS/EAR</span>
+          <span class="tag">iCET</span>
+          <span class="tag">India</span>
+          <span class="tag">Compliance Architecture</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="paper-number">02</div>
+      <div>
+        <div class="paper-title">The Compliance State: Strategic Dependency Under Export Control Integration</div>
+        <div class="paper-status">Working Paper · In Progress · 2026</div>
+        <div class="paper-abstract">
+          This paper theorises "compliance jurisdiction" as a mechanism of structural power in international technology relations. I develop four hypotheses: (H1) compliance integration as an indispensability strategy; (H2) sovereignty erosion under compliance architecture; (H3) non-ergodic risk in system-layer-absent environments; (H4) standards subordination as governance dependency. The framework bridges Farrell and Newman's weaponised interdependence literature with Drezner's regime complexity work, while identifying gaps in how the field accounts for below-threshold but path-dependent compliance entanglement.
+        </div>
+        <div class="paper-tags">
+          <span class="tag">Compliance Architecture</span>
+          <span class="tag">Strategic Dependency</span>
+          <span class="tag">Weaponised Interdependence</span>
+          <span class="tag">IR Theory</span>
+          <span class="tag">Technology Governance</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="paper-number">03</div>
+      <div>
+        <div class="paper-title">The Legibility Gap: Designing a Distributed Economic Intelligence Network for the Reserve Bank of India</div>
+        <div class="paper-status">Working Paper · Co-authored · In Progress · 2026</div>
+        <div class="paper-abstract">
+          Co-authored with Prof. Charan Singh (Ex-IMF · Ex-RBI · IIM Bangalore) and Prof. Sankarshan Basu (IIM Bangalore). This paper proposes a Distributed Economic Sensing Network (DESN) — an Indian analogue to the US Federal Reserve Beige Book and Bank of England's Agents' Summary — to address the structural legibility gap in India's qualitative macroeconomic intelligence architecture. The paper draws on Christopher Sims' critique of over-identified structural macro models to argue for decentralised, heterogeneous signal aggregation as a complement to formal monetary policy analysis.
+        </div>
+        <div class="paper-tags">
+          <span class="tag">Central Banking</span>
+          <span class="tag">RBI</span>
+          <span class="tag">Beige Book</span>
+          <span class="tag">Economic Intelligence</span>
+          <span class="tag">Qualitative Data</span>
+          <span class="tag">India</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="paper-number">04</div>
+      <div>
+        <div class="paper-title">Regulating Influence Without Borders: Financial Information Security, Platform Governance, and the Integrity of Formal Market Intermediation</div>
+        <div class="paper-status">Working Paper · Presented at I-MARC 2025 · Empirical Revision In Progress · Co-authored</div>
+        <div class="paper-abstract">
+          Co-authored with Prof. P C Mandal and Prof. Achinta Sarmah (IIM Shillong).<br><br>
+          Digital platforms have created a new class of actors — finfluencers — who shape retail financial behaviour, public risk perception, and trust in formal institutions without clearly falling within traditional categories of licensed advice, journalism, or advertising. Existing scholarship explains how influencer authority emerges through visibility, authenticity, and algorithmic amplification, while regulatory debates have focused primarily on disclosure, fraud, and platform moderation. This paper argues that finfluencer governance should also be understood as a problem of information security and institutional resilience. In strategic competition, informal financial influence can operate as a channel through which unlicensed actors distort market behaviour, undermine trust in regulated intermediaries, and exploit gaps between platform governance and state oversight. Rather than treating such influence as a narrow consumer-protection issue, the paper reconceptualises it as a governance challenge at the intersection of digital markets, information control, and national economic security.<br><br>
+          Methodologically, the study treats finfluencer regulation as a shock to the digital information environment rather than merely as a formal legal intervention. Building on a typology of educational, promotional, and pseudo-advisory financial content, it combines structured content coding with an event-study and difference-in-differences design to examine whether regulatory tightening changes content supply, rhetorical adaptation, platform amplification, and downstream movement toward formal, licensed financial channels. The paper's broader contribution is to show how states and platforms can shape digital financial intermediation not only through prohibition or disclosure, but by altering the incentives, visibility, and communicative form of high-impact informal influence. In doing so, it offers a framework for analysing how democratic and authoritarian systems differently govern financially relevant information flows under conditions of platform dependence and strategic rivalry.
+        </div>
+        <div class="paper-tags">
+          <span class="tag">Finfluencer Regulation</span>
+          <span class="tag">Information Security</span>
+          <span class="tag">Platform Governance</span>
+          <span class="tag">Difference-in-Differences</span>
+          <span class="tag">Event Study</span>
+          <span class="tag">Digital Financial Intermediation</span>
+          <span class="tag">National Economic Security</span>
+          <span class="tag">I-MARC 2025</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="paper-number">05</div>
+      <div>
+        <div class="paper-title">Sustainable Finance in the Semiconductor Value Chain: ESG Instruments, Supply Chain Resilience, and Capital Deployment</div>
+        <div class="paper-status">Working Paper · Co-authored · In Progress · 2025–26</div>
+        <div class="paper-abstract">
+          Co-authored with Saugat Roy (RBI Grade C Officer). This paper examines the intersection of sustainable finance mechanisms and semiconductor supply chain resilience. It develops a credit-relevant risk taxonomy translating semiconductor operational realities — fab capital intensity, equipment concentration, geopolitical exposure, and materials dependency — into term-sheet level financial implications across India, USA, Taiwan, and China. The paper analyses how green bonds, transition finance instruments, and ESG-linked lending can be deployed to support the capital-intensive buildout of semiconductor fabs and upstream material processing, and assesses the structural mismatches between existing sustainable finance frameworks and the operational risk profile of the semiconductor industry.
+        </div>
+        <div class="paper-tags">
+          <span class="tag">Sustainable Finance</span>
+          <span class="tag">Semiconductor Supply Chain</span>
+          <span class="tag">ESG</span>
+          <span class="tag">Green Bonds</span>
+          <span class="tag">Supply Chain Risk</span>
+          <span class="tag">India</span>
+          <span class="tag">Credit Risk</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- BACKGROUND -->
+  <section id="background">
+    <div class="section-label">Background</div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-period">Apr 2025 – Mar 2026</div>
+        <div>
+          <div class="timeline-title">Executive MBA (PGPEx)</div>
+          <div class="timeline-org">Indian Institute of Management Shillong</div>
+          <div class="timeline-desc">Class Rank 3 · CGPA 3.49. Capstone: India–France–Belgium strategic technology supply chains (Brussels fieldwork). Research focus: semiconductor geostrategy, export control architecture, central bank intelligence design.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">May – Jun 2025</div>
+        <div>
+          <div class="timeline-title">MBA Project Lead — Geostrategy & Localization Assessment</div>
+          <div class="timeline-org">Greenmood · Paris, France (Belgium/France)</div>
+          <div class="timeline-desc">Led India market entry assessment evaluating Taiwan sourcing dependency and geopolitical exposure. Applied TAM/SAM/SOM and NITI Aayog Cost-of-Doing-Business indicators. Formulated disruption scenarios comparing import-led vs localised production across regulatory risk, logistics reliability, and compliance burden.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Mar 2022 – Mar 2025</div>
+        <div>
+          <div class="timeline-title">Project Manager, Strategy & Projects (Founder's Office)</div>
+          <div class="timeline-org">JM Enterprises · Approved Vendor to Glatt Systems, Pune</div>
+          <div class="timeline-desc">Evaluated expansion feasibility across pharma and brewery clients (Glatt Systems, Praj Industries, Alfa Laval), forming a ₹100 Cr pipeline and restoring 8–12% EBITDA margin stability. ASME/ISO compliance interpretation for multinational customers. CAPEX/OPEX recovery profiling and bid sequencing.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Dec 2019 – Feb 2022</div>
+        <div>
+          <div class="timeline-title">Deputy Manager, Strategy & Projects (Founder's Office)</div>
+          <div class="timeline-org">Ganesh Fabrericom Company (GFC) · Approved Vendor to Praj Industries</div>
+          <div class="timeline-desc">Coordinated ₹50 Cr+ cross-border installations for SABMiller (South Africa) and Carlsberg (Myanmar). DCF/IRR evaluation of ₹50 Cr CAPEX expansion proposals. Established 40+ SOPs across fabrication and QA workflows. Reduced lead-time from 20–24 weeks to 14–16 weeks.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Apr 2015 – Mar 2025</div>
+        <div>
+          <div class="timeline-title">Director (Elected, Non-Executive)</div>
+          <div class="timeline-org">Sainath Rural Non-Agricultural Co-operative Credit Society · Latur, Maharashtra</div>
+          <div class="timeline-desc">Board oversight of lending, risk classification, and audit compliance under cooperative banking regulations. Ground-level observation of monetary policy transmission, informal credit markets, and financial inclusion dynamics.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Oct 2013 – Jan 2015</div>
+        <div>
+          <div class="timeline-title">Assistant Engineer — Metallurgy QA</div>
+          <div class="timeline-org">Pune Heat · Specialty Heat Treatment Manufacturing Startup</div>
+          <div class="timeline-desc">Metallurgical root-cause analysis linking microstructure behaviour to recurring defects. Heat-treatment parameter analysis using MATLAB and Excel within ISO/ASME quality regimes. 20% defect reduction achieved.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Jun 2009 – May 2013</div>
+        <div>
+          <div class="timeline-title">B.Tech, Metallurgy and Materials Science</div>
+          <div class="timeline-org">COEP Technological University, Pune</div>
+          <div class="timeline-desc">Engineering foundation underpinning subsequent work on semiconductor supply chains, materials processing economics, and manufacturing governance. DST/DRDO sponsored technical research conducted at ARAI Pune — CO₂ laser-welded automotive aluminium microstructure analysis.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Ongoing</div>
+        <div>
+          <div class="timeline-title">CFA Level I Candidate · Six Sigma Green Belt (ISCEA)</div>
+          <div class="timeline-org">CFA Institute · ISCEA</div>
+          <div class="timeline-desc">CFA Level I candidate. Six Sigma Green Belt certified. PMP ongoing.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <div class="contact-row">
+      <div class="contact-item">
+        <span class="c-label">Email</span>
+        <a href="/cdn-cgi/l/email-protection#2c4245584542024b444d58474d5e6c4545415f4445404043424b024d4f024542"><span class="__cf_email__" data-cfemail="26484f524f4808414e47524d4754664f4f4b554e4f4a4a494841084745084f48">[email&#160;protected]</span></a>
+      </div>
+      <div class="contact-item">
+        <span class="c-label">GitHub</span>
+        <a href="https://github.com/ghatkar111" target="_blank">github.com/ghatkar111</a>
+      </div>
+      <div class="contact-item">
+        <span class="c-label">Location</span>
+        I
